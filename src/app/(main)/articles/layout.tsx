@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const linkClass = (path: string) =>
-    pathname === path ? "text-blue-500 font-bold" : "text-gray-700";
+    pathname === path ? "text-blue-500 font-bold" : "text-white hover:text-gray-300";
   return (
-    <div className="min-h-screen bg-gray-800">
-      <nav className="flex gap-4 p-4 ">
+    <div className="min-h-screen">
+      <nav className="flex gap-4 p-4 border-b"> 
         <Link
           href="/articles/favorite"
           className={linkClass("/articles/favorite")}

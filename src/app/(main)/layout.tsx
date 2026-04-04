@@ -6,7 +6,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
   const linkClass = (path: string) =>
-    pathname === path ? "text-blue-500 font-bold" : "text-gray-700";
+    pathname === path ? "text-blue-500 font-bold" : "text-white hover:text-gray-300";
 
   return (
     <div className="min-h-screen bg-gray-800">
