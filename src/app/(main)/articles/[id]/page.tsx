@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 type params = { params: { id: string } };
 
 async function getPost(id: string) {
@@ -26,24 +27,29 @@ export default async function Page({ params }: params) {
   const comments = await getComments(id);
 
   return (
-    <div className="space-y-6">
-      <div className="border p-4 rounded">
-        <h1 className="text-2xl font-bold">{post.title}</h1>
-        <p className="text-gray-400 mt-2">{post.body}</p>
-      </div>
+    <div className="mx-auto space-y-12 py-10">
+      <Box className="border-b border-gray-800 pb-10">
+        <Typography variant="h4" className="text-white font-bold mb-6">
+          {post.title}
+        </Typography>
+        <Typography className="text-gray-400 text-lg">{post.body}</Typography>
+      </Box>
 
-      <div>
-        <h2 className="text-xl font-semibold mb-3">Comments</h2>
-
-        <div className="space-y-3">
-          {comments.map((comment: any) => (
-            <div key={comment.id} className="border p-3 rounded">
-              <p className="font-semibold">{comment.name}</p>
-              <p className="text-sm text-gray-500">{comment.email}</p>
-              <p className="mt-1">{comment.body}</p>
-            </div>
-          ))}
-        </div>
+      <div className="space-y-6">
+        <Typography variant="h6" className="text-accent font-bold">
+          Comments
+        </Typography>
+        {comments.map((comment: any) => (
+          <Box
+            key={comment.id}
+            className="p-5 bg-[#111827] border-l-2 border-primary rounded-r-lg"
+          >
+            <Typography className="text-primary font-semibold text-sm">
+              {comment.email}
+            </Typography>
+            <Typography className="text-white mt-2">{comment.body}</Typography>
+          </Box>
+        ))}
       </div>
     </div>
   );

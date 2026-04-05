@@ -1,5 +1,7 @@
 "use client";
 
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -22,14 +24,23 @@ export default function FavoriteArticle({ id }: Props) {
       .then(setPost);
   }, [id]);
 
-  if (!post) return <div>Loading {id}...</div>;
+  if (!post)
+    return <div className="text-gray-600 animate-pulse">Loading {id}...</div>;
 
   return (
-    <div className="border p-4 rounded">
-      <p>id: {post.id}</p>
-      <p>userId: {post.userId}</p>
-      <h2 className="font-bold">{post.title}</h2>
-      <p>{post.body}</p>
-    </div>
+    <Box className="p-6 bg-[#111827] border border-gray-800 rounded-xl mb-4">
+      <Typography
+        variant="caption"
+        className="text-accent uppercase tracking-widest font-bold"
+      >
+        Favorite #{post.id}
+      </Typography>
+      <Typography variant="h6" className="text-white font-bold mt-2">
+        {post.title}
+      </Typography>
+      <Typography className="text-gray-400 mt-4 text-sm leading-relaxed">
+        {post.body}
+      </Typography>
+    </Box>
   );
 }
