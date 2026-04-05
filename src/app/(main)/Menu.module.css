@@ -1,0 +1,41 @@
+.layout {
+    min-height: 100vh;
+    background-color: #1f2937;
+    padding: 0 300px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid #374151;
+    background-color: #111827;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.link:hover {
+    background-color: #374151;
+}
+
+.active {
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.content {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    flex: 1;
+}
