@@ -1,3 +1,5 @@
+type params = { params: { id: string } };
+
 async function getPost(id: string) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   console.log("fetching post", id);
@@ -12,7 +14,13 @@ async function getComments(id: string) {
   return res.json();
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export async function generateStaticParams() {
+  return Array.from({ length: 10 }, (_, i) => ({
+    id: String(i + 1),
+  }));
+}
+
+export default async function Page({ params }: params) {
   const { id } = await params;
   const post = await getPost(id);
   const comments = await getComments(id);

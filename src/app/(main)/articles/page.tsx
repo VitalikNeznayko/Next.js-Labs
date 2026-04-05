@@ -12,7 +12,7 @@ async function getPosts(): Promise<Post[]> {
 
   return res.json();
 }
-export default async function Articles() {
+export default async function Page() {
   const posts = await getPosts();
   return (
     <div>
