@@ -27,6 +27,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         >
           Security
         </Link>
+        <Link
+          href="/users"
+          className={linkClass("/users")}
+        >
+          Users
+        </Link>
       </nav>
       <div className={styles.content}>{children}</div>
     </div>
